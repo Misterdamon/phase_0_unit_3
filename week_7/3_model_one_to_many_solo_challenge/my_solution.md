@@ -31,13 +31,14 @@ One-to-Many, because each user can have many tweets, but each tweet can only bel
 <!-- Include your SQL Statements. How can you make markdown files show blocks of code? -->
 * all the tweets for a certain user id:  
 	`SELECT message  
-		FROM users JOIN tweets ON user_id = username_id  
-	  WHERE user_id = 241524`  (chose arbitrary integer for user_id)
+	FROM users JOIN tweets ON user_id = username_id  
+	WHERE user_id = 241524 
+(chose arbitrary integer for user_id)`  
 * * *
 * the tweets for a certain user id that were made after last Wednesday (whenever last Wednesday was for you)  
 	`SELECT message  
 	FROM users JOIN tweets ON user_id = username_id  
-	WHERE user_id = 241524 AND tweets.created_at > '2014/04/23'`  
+	WHERE user_id = 241524 AND tweets.created_at > '2014/04/23'`    
 * * *
 * all the tweets associated with a given user's twitter handle:  
 	`SELECT message  
@@ -47,7 +48,7 @@ One-to-Many, because each user can have many tweets, but each tweet can only bel
 * the twitter handle associated with a given tweet id:  
 	`SELECT username  
 	FROM users JOIN tweets ON user_id = username_id  
-	WHERE tweets.id = 123456` (chose arbitrary integer for tweet id)  
+	WHERE tweets.id = 123456 (chose arbitrary integer for tweet id)`
 * * * 
 
 ## Release 5: Reflection
