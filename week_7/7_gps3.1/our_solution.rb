@@ -112,3 +112,11 @@ assert{ butter.instance_of?(GroceryItem) }
 
 assert{ milk.instance_of?(GroceryItem) }
  
+#Reflection:
+=begin
+	For this challenge, it was great to get some more practice working with someone else toward a common solution. Our strategy was to start by creating our user stories 
+	and then converting those	stories to pseudocode. After that, we went right into creating the initial solution. We ended up doing our driver tests last, which was probably not the way to do
+		it but our code ended up working just fine. We created methods to add/remove/show the grocery list, and then checked to make sure our parameters were correct in our driver code. My pair showed me how to
+		test the parameters in the function, which I previously didn't know how to do, so I was grateful for that. Overall, I feel comfortable with creating classes/class methods, using instance variables, attr_readers etc...
+		I didn't find any part of the challenge to be tedious because my pair and I were working well throughout the challenge, and we switched off driving and navigating quite often.
+=end
