@@ -1,5 +1,5 @@
 # U3.W7: Intro to SQLite
-## <<< For some reason my markdown formatting looks correct on daringfireball, but is not formatting correctly in github. >>>
+## My formatting is a little ugly, sorry!
 ## Release 0: Create a dummy database
 
 `Jacobs-MacBook-Pro:~ jacobpersing$ sqlite3 dummy.db  
