@@ -21,75 +21,75 @@
 ## Release 1: Insert Data 
 
 `sqlite> INSERT INTO users  `
-   `...> (first_name, last_name, email, created_at, updated_at)  ` 
-   `...> VALUES   `
-   `...> ('Kimmey', 'Lin', 'kimmy@devbootcamp.com', DATETIME('now'), DATETIME('now'));   `
-`sqlite> SELECT * FROM users `   
- `  ...> ;`
+   `...> (first_name, last_name, email, created_at, updated_at)  `   
+   `...> VALUES   `  
+   `...> ('Kimmey', 'Lin', 'kimmy@devbootcamp.com', DATETIME('now'), DATETIME('now'));   `  
+`sqlite> SELECT * FROM users `     
+ `  ...> ;`  
    
-`id          first_name  last_name   email                  created_at           updated_at   `        
-`--!--!--!-  --!--!--!-  --!--!--!-  --!--!--!--!--!--!--!  --!--!--!--!--!--!-  --!--!--!--!--!--!- ` 
-`1           Kimmey      Lin         kimmy@devbootcamp.com  2014-04-26 18:48:18  2014-04-26 18:48:18  `
-`sqlite>`       
+`id          first_name  last_name   email                  created_at           updated_at   `          
+`--!--!--!-  --!--!--!-  --!--!--!-  --!--!--!--!--!--!--!  --!--!--!--!--!--!-  --!--!--!--!--!--!- `   
+`1           Kimmey      Lin         kimmy@devbootcamp.com  2014-04-26 18:48:18  2014-04-26 18:48:18  `  
+`sqlite>`         
 
-`sqlite> INSERT INTO users  `
-`   ...> (first_name, last_name, email, created_at, updated_at)  `
- `  ...> VALUES  `
-`   ...> ('Jacob','Persing','misterdamon@gmail.com',DATETIME('now'),DATETIME('now'));  `
-`sqlite> SELECT * FROM users ` 
-`   ...> ;  `
-`id          first_name  last_name   email                  created_at           updated_at     `      
-`--!--!--!-  --!--!--!-  --!--!--!-  --!--!--!--!--!--!--!  --!--!--!--!--!--!-  --!--!--!--!--!--!-      `
-`1           Kimmey      Lin         kimmy@devbootcamp.com  2014-04-26 18:48:18  2014-04-26 18:48:18   `
-`2           Jacob       Persing     misterdamon@gmail.com  2014-04-26 18:57:25  2014-04-26 18:57:25   `
+`sqlite> INSERT INTO users  `  
+`   ...> (first_name, last_name, email, created_at, updated_at)  `  
+ `  ...> VALUES  `  
+`   ...> ('Jacob','Persing','misterdamon@gmail.com',DATETIME('now'),DATETIME('now'));  `  
+`sqlite> SELECT * FROM users `   
+`   ...> ;  `  
+`id          first_name  last_name   email                  created_at           updated_at     `        
+`--!--!--!-  --!--!--!-  --!--!--!-  --!--!--!--!--!--!--!  --!--!--!--!--!--!-  --!--!--!--!--!--!-      `  
+`1           Kimmey      Lin         kimmy@devbootcamp.com  2014-04-26 18:48:18  2014-04-26 18:48:18   `  
+`2           Jacob       Persing     misterdamon@gmail.com  2014-04-26 18:57:25  2014-04-26 18:57:25   `  
 `sqlite>`  
 ## Release 2: Multi-line commands
 
-`sqlite> INSERT INTO users  `
-   `...> (first_name, last_name, email, created_at, updated_at)  `
+`sqlite> INSERT INTO users  `  
+   `...> (first_name, last_name, email, created_at, updated_at)  `  
   ` ...> VALUES`   
    `...> ('Kimmey','Lin','kimmy@devbootcamp.com',DATETIME('now'),DATETIME('now'))`    
    `...> ;`   
 `Error: column email is not unique`   
 `sqlite> SELECT * FROM users`  
-`   ...> ;`
+`   ...> ;`  
 `id          first_name  last_name   email                  created_at           updated_at `          
-`--!--!--!-  --!--!--!-  --!--!--!-  --!--!--!--!--!--!--!  --!--!--!--!--!--!-  --!--!--!--!--!--!- `     
-`1           Kimmey      Lin         kimmy@devbootcamp.com  2014-04-26 18:48:18  2014-04-26 18:48:18  `
-`2           Jacob       Persing     misterdamon@gmail.com  2014-04-26 18:57:25  2014-04-26 18:57:25`  
-`sqlite> `
+`--!--!--!-  --!--!--!-  --!--!--!-  --!--!--!--!--!--!--!  --!--!--!--!--!--!-  --!--!--!--!--!--!- `      
+`1           Kimmey      Lin         kimmy@devbootcamp.com  2014-04-26 18:48:18  2014-04-26 18:48:18  `   
+`2           Jacob       Persing     misterdamon@gmail.com  2014-04-26 18:57:25  2014-04-26 18:57:25`   
+`sqlite> `  
 
 ## Release 3: Add a column
 
 ` sqlite> ALTER TABLE users`  
 `   ...> ADD nickname VARCHAR(64);`  
-`sqlite> UPDATE users`  
+`sqlite> UPDATE users`   
 `   ...> SET nickname = 'Kimchee'`  
-`   ...> WHERE email = 'kimmy@devbootcamp.com';  `
+`   ...> WHERE email = 'kimmy@devbootcamp.com';  `  
 
 ` sqlite> UPDATE users`  
 `   ...> SET nickname = 'Jakey'`  
-`   ...> WHERE email = 'misterdamon@gmail.com';  `
-`sqlite> SELECT * FROM users   `
-`   ...> ;  `
-`id          first_name  last_name   email                  created_at           updated_at           nickname    `
-`--!--!--!-  --!--!--!-  --!--!--!-  --!--!--!--!--!--!--!  --!--!--!--!--!--!-  --!--!--!--!--!--!-  !--!--!--   `
-`1           Kimmey      Lin         kimmy@devbootcamp.com  2014-04-26 19:15:44  2014-04-26 19:15:44  Kimchee      `
-`2           Jacob       Persing     misterdamon@gmail.com  2014-04-26 19:16:23  2014-04-26 19:16:23  Jakey         `
+`   ...> WHERE email = 'misterdamon@gmail.com';  `  
+`sqlite> SELECT * FROM users   `  
+`   ...> ;  `  
+`id          first_name  last_name   email                  created_at           updated_at           nickname    `  
+`--!--!--!-  --!--!--!-  --!--!--!-  --!--!--!--!--!--!--!  --!--!--!--!--!--!-  --!--!--!--!--!--!-  !--!--!--   `  
+`1           Kimmey      Lin         kimmy@devbootcamp.com  2014-04-26 19:15:44  2014-04-26 19:15:44  Kimchee      `  
+`2           Jacob       Persing     misterdamon@gmail.com  2014-04-26 19:16:23  2014-04-26 19:16:23  Jakey         `  
 `sqlite> `  
 ## Release 4: Change a value
 
-`sqlite> UPDATE users  `
-`   ...> SET nickname = 'Ninja Coder', first_name = 'Kimmy', last_name = 'Lin', updated_at = DATETIME('now')  `
-`   ...> WHERE email = 'kimmy@devbootcamp.com'  `
-`   ...> ;  `
-`sqlite> SELECT * FROM users  `
-`   ...> ;  `
-`id          first_name  last_name   email                  created_at           updated_at           nickname  `    
-`--!--!--!-  --!--!--!-  --!--!--!-  --!--!--!--!--!--!--!  --!--!--!--!--!--!-  --!--!--!--!--!--!-  !--!--!--  `   
-`1           Kimmy       Lin         kimmy@devbootcamp.com  2014-04-26 19:15:44  2014-04-26 19:32:13  Ninja Coder `  
-`2           Jacob       Persing     misterdamon@gmail.com  2014-04-26 19:16:23  2014-04-26 19:16:23  Jakey   `      
-`sqlite> `   
+`sqlite> UPDATE users  `  
+`   ...> SET nickname = 'Ninja Coder', first_name = 'Kimmy', last_name = 'Lin', updated_at = DATETIME('now')  `  
+`   ...> WHERE email = 'kimmy@devbootcamp.com'  `  
+`   ...> ;  `  
+`sqlite> SELECT * FROM users  `  
+`   ...> ;  `  
+`id          first_name  last_name   email                  created_at           updated_at           nickname  `      
+`--!--!--!-  --!--!--!-  --!--!--!-  --!--!--!--!--!--!--!  --!--!--!--!--!--!-  --!--!--!--!--!--!-  !--!--!--  `     
+`1           Kimmy       Lin         kimmy@devbootcamp.com  2014-04-26 19:15:44  2014-04-26 19:32:13  Ninja Coder `    
+`2           Jacob       Persing     misterdamon@gmail.com  2014-04-26 19:16:23  2014-04-26 19:16:23  Jakey   `        
+`sqlite> `     
 
 ## Release 5: Reflect
 
