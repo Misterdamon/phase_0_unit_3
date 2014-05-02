@@ -62,3 +62,6 @@ Define the following commands and describe how they work/what they do.
 	* add files to staging - `git add <filename>`
 	* commit changes (but don't push them yet) - `git commit -m 'message'`
 		* this adds the changes to local repo but hasnt merged with remote yet until you use push.
+
+#### Reflection
+* For this challenge, I found it extremely useful to start using git through the command line. Previously, I had been using the app, and while I had some understanding of what the app was actually doing, this challenge helped to solidify a lot of the questions I had. I feel like I definitely understand git/github better now and am excited to start using it through the command line like a true programmer :D. 
