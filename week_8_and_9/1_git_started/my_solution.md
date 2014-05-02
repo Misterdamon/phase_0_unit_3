@@ -3,46 +3,62 @@ Define the following commands and describe how they work/what they do.
 
 
 #### add
-<!-- Your defnition here -->
+* 'add' places the filenames that you specify into the staging area for committing. Ex. git add octocat.txt
 
 #### branch
-<!-- Your defnition here -->
+* 'branch' - if branch is used with no arguments, it lists all the branches in the repo and the current branch you are working in. If used with the -d argument you can delete a branch specified
 
 #### checkout
-<!-- Your defnition here -->
+* 'checkout' -if used with no argument, checkout switches between branches in a repo. if used with -b argument, creates a new branch and switches
 
 #### clone
-<!-- Your defnition here -->
+* 'clone' - creates a working copy of a local repository if you pass a local directory in. For a remote server, include path to host and repository on remote server.
 
 #### commit
-<!-- Your defnition here -->
+* 'commit' - if used with no arguments, commits all changes to HEAD. If used with -a commits all staged files and files that had changes made to them within your repository
 
 #### fetch
-<!-- Your defnition here -->
+* 'fetch' - downloads changes from a repository, and stores them in your local repository, fetch does not automatically merge these committs though
 
 #### log
-<!-- Your defnition here -->
+* 'log' - shows all committ logs with id's and which branch they were made on.
 
 #### merge
-<!-- Your defnition here -->
+* 'merge' - combines all development changes from two or more histories into the same branch
 
 #### pull
-<!-- Your defnition here -->
+* 'pull' - combination of a fetch and a merge. git pull fetches and merges changes from a remote repository to your working local repository.
 
 #### push
-<!-- Your defnition here -->
+* 'push' - pushes all local changes to remote repository so that others can use them. if use with --all, pushes ALL branches to remote repo. if you put : in front of the branch name, it deletes the branch. 
 
 #### reset
-<!-- Your defnition here -->
+* 'reset' - resets branch HEAD to specified state, can revert to older version of repository, or reset until a certain commit was made.
 
 #### rm
-<!-- Your defnition here -->
+* 'rm' - removes files from the working tree or from the index
 
 #### status
+* 'status' - git status shows the current state of the staging area and files that are ready to be committed, or those that need to be committed or changed.
 
 
 ## Release 3: Git Workflow
 
 - Push files to a remote repository
+	* add files that you want to push to the staging area using git -add <filename>
+	* use git status to see stage state of files and then decide whether you are ready to push
+	* use git push origin master to sync local changes with remote repo
 - Fetch changes
+	* To fetch changes from a repository: 
+		* check the current remote repo setting - `git remote -v`
+		* set up new remote repo to fetch from - `git remote add upstream url/to/repo`
+		* fetch changes - `git fetch upstream` (this has not been merged yet)
+		* check to see if upstream is stored - `git branch -va`
+		* make sure you are in master branch - `git branch` or `git checkout master`
+		* merge changes - git merge upstream/master
+		* commit changes to your remote repo on github - `git commit -m 'message'`
+		* push changes to repo - git push origin master
 - Commit locally
+	* add files to staging - `git add <filename>`
+	* commit changes (but don't push them yet) - `git commit -m 'message'`
+		* this adds the changes to local repo but hasnt merged with remote yet until you use push.
