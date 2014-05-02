@@ -1,6 +1,6 @@
 # U3.W7: BONUS Using the SQLite Gem
 
-# I worked on this challenge by myself.
+# I worked on this challenge by myself.    
 
 require 'sqlite3'
 
