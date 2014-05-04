@@ -145,7 +145,7 @@ assert(
 )
 // for some reason I could not get this test to pass even though William's test scores were the same as scores[2]. Don't know why it wouldn't pass.
 /*assert(
-  (gradebook.William.testScores.to_a === scores[2]),
+  (gradebook.William.testScores === scores[2]),
   "William's testScores should equal the third element in scores.",
   "5. "
 )
