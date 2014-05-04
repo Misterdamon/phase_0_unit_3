@@ -1,6 +1,6 @@
 // U3.W8-9: Gradebook from Names and Scores
 
-// I worked on this challenge [by myself, with:]
+// I worked on this challenge by myself.
 
 // These are the votes cast by each student. Do not alter these objects here.
 var votes = {
@@ -64,20 +64,86 @@ var officers = {
 }
 
 // Pseudocode
-
+/*
+  --define count_votes to take an object as parameter
+    - for voter in votes
+      - for position in voter's votes (votes[voter])
+        - set voteCount[pos][votes[voter][pos]] to the next incremented value
+        - set it to 1 if this is the first time this person has been voted for
+  -- define choose_officers to take the counted votes as parameter
+    - for position in voteCount
+      - initialize largest amount of votes to 0
+      - for person in voteCount[position]
+        - if value of votes for person at position in voteCount is larger than largest, set officer[position] to that person
+        - set largest = value of votes at voteCount[position][person]
+        - return officers object
+*/
 
 // __________________________________________
 // Initial Solution
+/*var count_votes = function(object){
+  for (var i in object){ //for each name in votes
+    for( var j in object[i]){ // for each vote for each name
+      // this statement sets the value of vote count for each officer position to another object
+      // containing the name and number of votes for that name. ++ || 1 increments the counter for each person's vote
+      // but sets the value to 1 if this is the first time this persons vote has come up. 
 
+      voteCount[j][object[i][j]] = ++voteCount[j][object[i][j]] || 1
+    }
+  }
+}
+count_votes(votes)
+console.log(voteCount)
 
+//assigns values to officers object
+var choose_officers = function(count){
 
+  for (var i in voteCount){
+    var largest = 0 //sets largest amount of votes to 0
+    for (var j in voteCount[i]){
+      if(voteCount[i][j] > largest){
+        officers[i] = j //sets officer[position] to value of person
+        largest = voteCount[i][j] //sets largest to value of voteCount[position][person]
+      }
+    }
+  }
+  return officers
+}
+console.log(choose_officers(voteCount))
 
-
-
-
+*/
 // __________________________________________
 // Refactored Solution
+//I refactored my solution to use more descriptive counter names for my loops, I think it helps track the progression of the code better.
 
+var count_votes = function(object){
+  for (var voter in object){ //for each name in votes
+    for( var pos in object[voter]){ // for each vote for each name
+      // this statement sets the value of vote count for each officer position to another object
+      // containing the name and number of votes for that name. ++ || 1 increments the counter for each person's vote
+      // but sets the value to 1 if this is the first time this persons vote has come up. 
+
+      voteCount[pos][object[voter][pos]] = ++voteCount[pos][object[voter][pos]] || 1
+    }
+  }
+}
+count_votes(votes)
+
+//assigns values to officers object
+var choose_officers = function(count){
+
+  for (var pos in voteCount){
+    var largest = 0 //sets largest amount of votes to 0
+    for (var person in voteCount[pos]){
+      if(voteCount[pos][person] > largest){
+        officers[pos] = person //sets officer[position] to value of person
+        largest = voteCount[pos][person] //sets largest to value of voteCount[position][person]
+      }
+    }
+  }
+  return officers
+}
+choose_officers(voteCount)
 
 
 
@@ -85,9 +151,12 @@ var officers = {
 
 // __________________________________________
 // Reflection
-
-
-
+/*
+I felt that this challenge was pretty difficult to work through at first, just because I hadn't had much practice with nested objects and iterating through them. 
+After I figured out how I would access each value I needed to work with, then I started writing the loops to go through and count the votes. It took a bit of time to
+get my loops done correctly so that I was getting the right values, but I eventually tailored figured it out. I enjoyed this challenge because I liked coming back to Javascript after
+a while of inactivity with it. Overall I feel comfortable with the learning objectives, but could always use more practice!
+*/
 
 
 
