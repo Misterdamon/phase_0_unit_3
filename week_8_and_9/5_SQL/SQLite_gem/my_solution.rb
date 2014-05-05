@@ -44,6 +44,25 @@ def print_state_reps(state)
 	query_state_reps.execute(state).each do |x| puts x end
 	print_separator
 end
+
+def print_rep_votes
+  rep_votes = $db.execute "select name,count(votes.politician_id) FROM congress_members JOIN votes ON congress_members.id=politician_id GROUP BY name"
+  rep_votes.each do |x|
+    puts "#{x[0]} - #{x[1]} votes"
+  end
+end
+#I commented this function out because I could not get my SQL statement to select the right values
+=begin
+def print_rep_and_voters
+  reps = $db.execute "SELECT name, id from congress_members"
+  voters = $db.execute "SELECT name FROM congress_members 
+                            JOIN votes ON congress_members.id=politician_id 
+                            JOIN voters ON votes.voter_id = voters.id WHERE voters.politician_id = congress_members.id
+                            WHERE votes.poli"
+
+
+end
+=end
 print_arizona_reps
 
 print_separator
@@ -66,16 +85,20 @@ print_state_reps('AK')
 
 ##### BONUS #######
 # TODO (bonus) - Stop SQL injection attacks!  Statmaster learned that interpolation of variables in SQL statements leaves some security vulnerabilities.  Use the google to figure out how to protect from this type of attack.
+# I prevented SQL injection by parameterizing all of my queries so that the queries will only work with correct input.
 
 # TODO (bonus)
 # Create a listing of all of the Politicians and the number of votes they recieved
 # output should look like:  Sen. John McCain - 7,323 votes (This is an example, yours will not return this value, it should just 
 #    have a similar format)
+print_rep_votes
+
 # Create a listing of each Politician and the voter that voted for them
 # output should include the senators name, then a long list of voters separated by a comma
 #
 # * you'll need to do some join statements to complete these last queries!
-
+# I couldn't end up figuring out how to print each rep with the names of the voters after for some reason, I'll have to work on it further!
+#print_rep_and_voters
 
 # REFLECTION- Include your reflection as a comment below.
 # How does the sqlite3 gem work?  What is the variable `$db` holding?  
@@ -85,3 +108,15 @@ print_state_reps('AK')
 #   > #{minimum_years}")`.  Try to explain this as clearly as possible for 
 # your fellow students.  
 # If you're having trouble, find someone to pair on this explanation with you.
+
+#REFLECTION
+=begin
+  Basically the sqlite3 gem allows you to access database entries from within ruby code by using a series of methods that the gem has given us. The $db variable is a global variable that stores the database that we have passed to it.
+  When we call prepare and execute on this $db, it allows us to access the data stored in the DB. Essentially the sqlite3 gem provides us with a class that we can use to access our databases. When we use the $db = SQLite3::Database.open "congress_poll_results.db" code, it 
+  assigns calls the SQLITE3 class' open function. 
+  This line:
+      $db.execute("SELECT name FROM congress_members WHERE years_in_congress 
+#   > #{minimum_years}")
+  is basically using the class method 'execute' on the instance of the Database class, and passes in a string argument that contains the SQL statement we want to execute on the database. Execute will take our statement and return the values as an array which we can then output however we want to.
+  Overall I feel pretty comfortable with SQL statements, but could definitely use some more practice with multiple joins and fine-tuning the way I would like my data to be outputted.
+=end
