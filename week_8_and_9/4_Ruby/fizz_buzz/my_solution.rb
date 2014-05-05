@@ -40,7 +40,7 @@ def super_fizzbuzz(array)
 			x = "FizzBuzz" if x % 15 == 0
 			x = "Buzz" if x % 5 == 0
 	  	x = "Fizz" if x % 3 == 0
-	  	x = x 
+	  	x = x  
 	end
 	array
 end
