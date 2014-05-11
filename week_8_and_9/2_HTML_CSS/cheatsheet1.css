@@ -1,0 +1,33 @@
+header{
+	font-size:35px;
+	text-align:center;
+}
+h2 {
+  height: 50px;
+  background-color: grey;
+  color:white;
+  font-size:25px;
+  text-align:center;
+  padding:auto;
+  
+  }
+span{
+	border:1px solid black;
+}
+
+p {
+	margin:20px;
+}
+h4{
+	font-size:25px;
+	margin:0px;
+}
+.code{
+	font-family:'Titillium Web';
+	font-weight:bold;
+	background-color:lightblue;
+	display:inline-block;
+	margin:20px;
+	padding:10px;
+	border:1px solid black;
+}

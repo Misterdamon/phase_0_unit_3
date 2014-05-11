@@ -52,17 +52,19 @@ def print_rep_votes
   end
 end
 #I commented this function out because I could not get my SQL statement to select the right values
-=begin
+
 def print_rep_and_voters
-  reps = $db.execute "SELECT name, id from congress_members"
-  voters = $db.execute "SELECT name FROM congress_members 
-                            JOIN votes ON congress_members.id=politician_id 
-                            JOIN voters ON votes.voter_id = voters.id WHERE voters.politician_id = congress_members.id
-                            WHERE votes.poli"
-
-
+  rep = $db.execute "SELECT name FROM congress_members JOIN votes ON votes.politician_id = congress_members.id"
+  
+  rep.each{ |rep| 
+    puts rep
+    voters = $db.prepare "SELECT first_name,last_name FROM voters JOIN votes ON votes.voter_id = voters.id JOIN congress_members ON congress_members.id = votes.politician_id WHERE congress_members.name = :rep"
+    voters.execute(rep).each do |voter|
+      puts "#{voter[0]} #{voter[1]}, "
+    end
+  }
 end
-=end
+
 print_arizona_reps
 
 print_separator
@@ -98,7 +100,7 @@ print_rep_votes
 #
 # * you'll need to do some join statements to complete these last queries!
 # I couldn't end up figuring out how to print each rep with the names of the voters after for some reason, I'll have to work on it further!
-#print_rep_and_voters
+print_rep_and_voters
 
 # REFLECTION- Include your reflection as a comment below.
 # How does the sqlite3 gem work?  What is the variable `$db` holding?  

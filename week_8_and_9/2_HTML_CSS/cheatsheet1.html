@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JS Cheatsheet</title>
+  <link rel='stylesheet' type='text/css' href='cheatsheet1.css'>
+  <link href='http://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<header id = 'header'>
+  <h1>Javascript Objects Cheatsheet</h1>
+</header>
+<div class='wrapper'>
+  <h2>Object Literal Notation</h2>
+    <p>
+    An object is declared using literal notation by: </br>
+      <span class='code'>
+      var person1 = { </br>
+        name: "Andra", </br>
+        age: 26, </br>
+        location: "San Francisco" </br>
+      } </br>
+      </span></br>
+      Literal notation is best used when you have a lot of different objects, or don't require a lot of behaviour associated with your object, i.e. it is just a container for data.
+      In this example, name, age, and location are known as properties of the person1 object, and "Andra", 26, and "San Francisco" are the values of those 
+      properties.
+    </p>
+  <h2> Constructor Notation</h2>
+    <p>
+      An object is declared using constructor notation by: </br></br>
+      <span class='code'>
+      var person2 = new Object();<br>
+      person2.name = "Jake"; <br>
+      person2.age = "25";<br>
+      person2.location = "San Francisco";<br>
+      </span> <br>
+      Constructor notation is best used when you have a large number of objects that need to be instantiated or modified in some way. Or if you need multiple instances of that same object.
+      In this example, name, age, and location are still properties of the person2 object, but are accessed using dot notation.
+    </p>
+  <h2>Accessing Object Properties</h2>
+    <p>
+      There are two different ways to access an object's properties in Javascript.<br>
+      The first is bracket notation: <br><br>
+      <span class='code'>
+      person1["name"] ==> output: "Andra"<br>
+      </span><br>
+      The second is dot notation: <br><br>
+      <span class='code'>
+      person2.name ==> output: "Jake"   
+      </span><br>
+    </p>
+  <h2>Declaring and Accessing Object Methods</h2>
+      <h4>Declaring Function using dot notation:</h4><br>
+    <p>
+      <span class='code'>
+      person2.prototype.print_info = function(){ 
+        console.log('My name is ' + this.name + ', I am ' + this.age + ' and live in ' + this.location.' )
+      }
+      </span><br><br>
+    </p>
+      <h4>Accessing Object Method</h4><br>
+    <p>
+      <span class='code'>
+        person2.print_info() ==> output: 'My name is Jake, I am 25 and live in San Francisco.'
+      </span>
+    </p>
+</div>  
+</body>
+</html>
